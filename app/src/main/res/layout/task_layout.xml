@@ -22,17 +22,65 @@
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textFontWeight="700"
             android:textColor="@android:color/primary_text_light"
             tools:text="Description" />
-
-        <!-- TextView that displays the update date -->
-        <TextView
-            android:id="@+id/taskUpdatedAt"
-            style="@style/TextAppearance.AppCompat.Small"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/primary_text_light"
-            tools:text="11/11/1111" />
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="18dp"
+                android:background="@android:color/holo_red_light"
+                android:text="@string/task_date_string"
+                android:textColor="@android:color/primary_text_light" />
+
+            <TextView
+                android:layout_gravity="start"
+                android:id="@+id/taskDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:background="@android:color/holo_red_light"
+                android:layout_marginLeft="5dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="8dp"
+                android:textSize="18dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/holo_green_light"
+                android:text="@string/task_update_string"
+                android:textColor="@android:color/primary_text_light" />
+
+            <TextView
+                android:layout_gravity="start"
+                android:id="@+id/taskUpdatedAt"
+                android:layout_width="wrap_content"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_light"
+                android:layout_marginLeft="5dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

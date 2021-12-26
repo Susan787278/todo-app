@@ -22,6 +22,14 @@
         android:hint="@string/edit_task_description"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
 
+    <EditText
+        android:id="@+id/editTextTaskDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="@string/edit_task_date"
+        android:paddingBottom="@dimen/activity_horizontal_margin" />
+
     <!-- TextView and FrameLayout (which contains buttons) for Priority Selection -->
     <TextView
         style="@style/TextAppearance.AppCompat.Medium"

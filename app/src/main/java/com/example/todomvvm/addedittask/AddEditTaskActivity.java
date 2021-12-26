@@ -34,6 +34,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
     private static final String TAG = AddEditTaskActivity.class.getSimpleName();
     // Fields for views
     EditText mEditText;
+    EditText mEditDate;
     RadioGroup mRadioGroup;
     Button mButton;
 
@@ -92,6 +93,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
      */
     private void initViews() {
         mEditText = findViewById(R.id.editTextTaskDescription);
+        mEditDate = findViewById(R.id.editTextTaskDate);
         mRadioGroup = findViewById(R.id.radioGroup);
 
         mButton = findViewById(R.id.saveButton);
@@ -113,6 +115,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
             return;
         }
         mEditText.setText(task.getDescription());
+        mEditDate.setText(task.getTaskDate());
         setPriorityInViews(task.getPriority());
 
     }
@@ -124,9 +127,10 @@ public class AddEditTaskActivity extends AppCompatActivity {
     public void onSaveButtonClicked() {
         // Not yet implemented
         String description = mEditText.getText().toString();
+        String taskDate = mEditDate.getText().toString();
         int priority = getPriorityFromViews();
         Date date = new Date();
-        TaskEntry todo = new TaskEntry(description, priority, date);
+        TaskEntry todo = new TaskEntry(description, priority, date, taskDate);
         if(mTaskId == DEFAULT_TASK_ID)
             viewModel.insertTask(todo);
         else{
