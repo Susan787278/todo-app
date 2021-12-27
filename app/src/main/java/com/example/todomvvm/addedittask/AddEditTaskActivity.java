@@ -33,6 +33,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
     // Constant for logging
     private static final String TAG = AddEditTaskActivity.class.getSimpleName();
     // Fields for views
+    EditText mEditTitle;
     EditText mEditText;
     EditText mEditDate;
     RadioGroup mRadioGroup;
@@ -92,6 +93,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
      * initViews is called from onCreate to init the member variable views
      */
     private void initViews() {
+        mEditTitle = findViewById(R.id.editTextTaskTitle);
         mEditText = findViewById(R.id.editTextTaskDescription);
         mEditDate = findViewById(R.id.editTextTaskDate);
         mRadioGroup = findViewById(R.id.radioGroup);
@@ -114,6 +116,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
         if(task == null){
             return;
         }
+        mEditTitle.setText(task.getTitle());
         mEditText.setText(task.getDescription());
         mEditDate.setText(task.getTaskDate());
         setPriorityInViews(task.getPriority());
@@ -126,11 +129,12 @@ public class AddEditTaskActivity extends AppCompatActivity {
      */
     public void onSaveButtonClicked() {
         // Not yet implemented
+        String title = mEditTitle.getText().toString();
         String description = mEditText.getText().toString();
         String taskDate = mEditDate.getText().toString();
         int priority = getPriorityFromViews();
         Date date = new Date();
-        TaskEntry todo = new TaskEntry(description, priority, date, taskDate);
+        TaskEntry todo = new TaskEntry(title, description, priority, date, taskDate);
         if(mTaskId == DEFAULT_TASK_ID)
             viewModel.insertTask(todo);
         else{
